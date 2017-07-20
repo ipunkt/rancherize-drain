@@ -2,13 +2,14 @@
 
 use Rancherize\Blueprint\PublishUrls\PublishUrlsYamlWriter\PublishUrlsYamlWriter;
 use Rancherize\Blueprint\PublishUrls\PublishUrlsYamlWriter\Traefik\V2\V2TraefikPublishUrlsYamlWriterVersion;
+use Rancherize\Plugin\ProviderTrait;
 
 /**
  * Class RancherPublishProvider
  */
 class RancherPublishProvider implements \Rancherize\Plugin\Provider {
 
-	use \Rancherize\Plugin\ProviderTrait;
+	use ProviderTrait;
 
 	/**
 	 */
