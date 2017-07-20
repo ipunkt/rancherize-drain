@@ -1,4 +1,4 @@
-<?php
+<?php namespace RancherizePublishRancher;
 
 /**
  * Class RancherPublishProvider
