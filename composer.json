@@ -1,0 +1,17 @@
+{
+	"name": "ipunkt/rancherize-publish-traefik-rancher",
+	"description": "Rancherize plugin to publish images to an ecr repository",
+	"type": "project",
+	"license": "MIT",
+	"autoload":{
+		"psr-4": {
+			"RancherizePublishRancher\\": "plugin/"
+		}
+	},
+	"require-dev": {
+		"ipunkt/rancherize": "dev-publish-urls-container"
+	},
+  "extra":{
+    "rancherize-provider":"RancherizePublishRancher\\RancherPublishProvider"
+  }
+}
