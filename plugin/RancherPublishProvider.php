@@ -12,7 +12,7 @@ class RancherPublishProvider implements \Rancherize\Plugin\Provider {
 	/**
 	 */
 	public function register() {
-		$this->container['publish-urls-yaml-writer.traefik-rancherl.2'] = function($c) {
+		$this->container['publish-urls-yaml-writer.traefik-rancher.2'] = function($c) {
 			return new V2TraefikPublishUrlsYamlWriterVersion();
 		};
 	}
