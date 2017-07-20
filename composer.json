@@ -9,9 +9,11 @@
 		}
 	},
 	"require-dev": {
-		"ipunkt/rancherize": "dev-publish-urls-container"
 	},
   "extra":{
     "rancherize-provider":"RancherizePublishRancher\\RancherPublishProvider"
-  }
+  },
+	"require": {
+		"ipunkt/rancherize": "^2.11.1"
+	}
 }
