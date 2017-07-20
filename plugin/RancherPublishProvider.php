@@ -1,6 +1,7 @@
 <?php namespace RancherizePublishRancher;
 
 use Rancherize\Blueprint\PublishUrls\PublishUrlsYamlWriter\PublishUrlsYamlWriter;
+use Rancherize\Blueprint\PublishUrls\PublishUrlsYamlWriter\Traefik\V2\V2TraefikPublishUrlsYamlWriterVersion;
 
 /**
  * Class RancherPublishProvider
