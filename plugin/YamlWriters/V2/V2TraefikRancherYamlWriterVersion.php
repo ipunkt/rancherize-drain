@@ -4,6 +4,7 @@ use Rancherize\Blueprint\PublishUrls\PublishUrlsExtraInformation\PublishUrlsExtr
 use Rancherize\Blueprint\PublishUrls\PublishUrlsYamlWriter\PublishUrlsYamlWithPartWriters;
 use RancherizePublishRancher\YamlWriters\PartWriters\TraefikRancherEnableWriter;
 use RancherizePublishRancher\YamlWriters\PartWriters\TraefikRancherPortWriter;
+use RancherizePublishRancher\YamlWriters\PartWriters\TraefikRancherPriorityWriter;
 use RancherizePublishRancher\YamlWriters\PartWriters\TraefikRancherRuleWriter;
 
 /**
@@ -16,6 +17,7 @@ class V2TraefikRancherYamlWriterVersion extends PublishUrlsYamlWithPartWriters {
 		$this->addPartWriter( new TraefikRancherEnableWriter() );
 		$this->addPartWriter( new TraefikRancherPortWriter() );
 		$this->addPartWriter( new TraefikRancherRuleWriter() );
+		$this->addPartWriter( new TraefikRancherPriorityWriter() );
 	}
 
 	/**
