@@ -14,6 +14,6 @@
     "rancherize-provider":"RancherizePublishRancher\\RancherPublishProvider"
   },
 	"require": {
-		"ipunkt/rancherize": "^2.11.1"
+		"ipunkt/rancherize": "^2.11.1@dev"
 	}
 }
