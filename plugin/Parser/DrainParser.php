@@ -20,12 +20,17 @@ class DrainParser {
 	 * @param Configuration $configuration
 	 */
 	public function parse( Configuration $configuration ) {
-		if( !$configuration->has('drain') )
-			return;
+		if( !$configuration->has('drain') ) {
+            var_dump('drain not found');
+
+            return;
+        }
 
         $isDisabled = !$configuration->get('drain.enable', true);
-        if( $isDisabled )
+        if( $isDisabled ) {
+            var_dump('drain disabled');
             return;
+        }
 
 
 		$timeout = (int)$configuration->get('drain.timeout', 30);

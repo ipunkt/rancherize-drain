@@ -40,17 +40,41 @@ class DrainProvider implements Provider {
 	/**
 	 */
 	public function boot() {
-		/**
-		 * @var MainServiceBuiltListener $eventListener
-		 */
-		$eventListener = $this->container[MainServiceBuiltListener::class];
+         $this->registerServiceParser();
+        $this->registerServiceWriter();
+    }
 
+    /**
+     * @return EventDispatcher
+     */
+    private function registerServiceParser(): EventDispatcher
+    {
+        /**
+         * @var MainServiceBuiltListener $eventListener
+         */
+        $eventListener = $this->container[MainServiceBuiltListener::class];
 
-		/**
-		 * @var EventDispatcher $event
-		 */
-		$event = $this->container['event'];
-		$event->addListener(MainServiceBuiltEvent::NAME, [$eventListener, 'mainServiceBuilt']);
-		$event->addListener(ServiceWriterServicePreparedEvent::NAME, 'servicePrepared');
-	}
+        /**
+         * @var EventDispatcher $event
+         */
+        $event = $this->container['event'];
+        $event->addListener(MainServiceBuiltEvent::NAME, [$eventListener, 'mainServiceBuilt']);
+    }
+
+    /**
+     * @param $event
+     */
+    private function registerServiceWriter()
+    {
+        /**
+         * @var ServiceWriterListener $eventListener
+         */
+        $writeListener = $this->container[ServiceWriterListener::class];
+
+        /**
+         * @var EventDispatcher $event
+         */
+        $event = $this->container['event'];
+        $event->addListener(ServiceWriterServicePreparedEvent::NAME, [$writeListener, 'servicePrepared']);
+    }
 }

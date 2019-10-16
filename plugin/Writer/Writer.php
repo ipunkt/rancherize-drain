@@ -28,7 +28,9 @@ class Writer {
 	public function write() {
 		try {
 			$information = $this->service->getExtraInformation(DrainExtraInformation::IDENTIFIER);
+            var_dump('drain information found');
 		} catch(ExtraInformationNotFoundException $e) {
+		    var_dump('no drain information');
 			return;
 		}
 
