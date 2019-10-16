@@ -25,6 +25,7 @@ class ServiceWriterListener {
 	 * @param ServiceWriterServicePreparedEvent $event
 	 */
 	public function servicePrepared(ServiceWriterServicePreparedEvent $event) {
+	    var_dump('servicePrepared');
 		$dockerContent = $event->getDockerContent();
 		$rancherContent = $event->getRancherContent();
 
