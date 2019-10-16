@@ -2,3 +2,4 @@
 /.idea/
 /rancherize.json
 /.rancherize
+/composer.lock
