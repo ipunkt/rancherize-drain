@@ -58,8 +58,8 @@ class Writer {
 	 * @param mixed $dockerContent
 	 * @return Writer
 	 */
-	public function setDockerContent( $dockerContent ) {
-		$this->dockerContent = $dockerContent;
+	public function setDockerContent( &$dockerContent ) {
+		$this->dockerContent = &$dockerContent;
 		return $this;
 	}
 
@@ -67,8 +67,8 @@ class Writer {
 	 * @param mixed $rancherContent
 	 * @return Writer
 	 */
-	public function setRancherContent( $rancherContent ) {
-		$this->rancherContent = $rancherContent;
+	public function setRancherContent( &$rancherContent ) {
+		$this->rancherContent = &$rancherContent;
 		return $this;
 	}
 
