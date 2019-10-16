@@ -1,7 +1,7 @@
-<?php namespace RancherizeTraefikDrain\EventListeners;
+<?php namespace RancherizeDrain\EventListeners;
 
 use Rancherize\Blueprint\Events\MainServiceBuiltEvent;
-use RancherizeTraefikDrain\Parser\DrainParser;
+use RancherizeDrain\Parser\DrainParser;
 
 /**
  * Class MainServiceBuiltListener

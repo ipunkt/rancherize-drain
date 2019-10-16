@@ -1,7 +1,7 @@
-<?php namespace RancherizeTraefikDrain\EventListeners;
+<?php namespace RancherizeDrain\EventListeners;
 
 use Rancherize\Blueprint\Infrastructure\Service\Events\ServiceWriterServicePreparedEvent;
-use RancherizeTraefikDrain\Writer\Writer;
+use RancherizeDrain\Writer\Writer;
 
 /**
  * Class ServiceWriterListener

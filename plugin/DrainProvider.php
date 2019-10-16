@@ -1,16 +1,16 @@
-<?php namespace RancherizeTraefikDrain;
+<?php namespace RancherizeDrain;
 
 use Rancherize\Blueprint\Events\MainServiceBuiltEvent;
 use Rancherize\Plugin\Provider;
 use Rancherize\Plugin\ProviderTrait;
-use RancherizeTraefikDrain\EventListeners\MainServiceBuiltListener;
-use RancherizeTraefikDrain\Parser\DrainParser;
+use RancherizeDrain\EventListeners\MainServiceBuiltListener;
+use RancherizeDrain\Parser\DrainParser;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Class RancherPublishProvider
  */
-class RancherPublishProvider implements Provider {
+class DrainProvider implements Provider {
 
 	use ProviderTrait;
 

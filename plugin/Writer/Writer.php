@@ -1,8 +1,8 @@
-<?php namespace RancherizeTraefikDrain\Writer;
+<?php namespace RancherizeDrain\Writer;
 
 use Rancherize\Blueprint\Infrastructure\Service\ExtraInformationNotFoundException;
 use Rancherize\Blueprint\Infrastructure\Service\Service;
-use RancherizeTraefikDrain\DrainExtraInformation;
+use RancherizeDrain\DrainExtraInformation;
 
 /**
  * Class Writer

@@ -1,4 +1,4 @@
-<?php namespace RancherizeTraefikDrain;
+<?php namespace RancherizeDrain;
 
 use Rancherize\Blueprint\Infrastructure\Service\ServiceExtraInformation;
 

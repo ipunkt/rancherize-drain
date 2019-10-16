@@ -1,17 +1,17 @@
 {
-	"name": "ipunkt/rancherize-traefik-drain",
-	"description": "Rancherize plugin to publish via traefik but with an intermediate rancher lb so drain_timeout_ms takes effect",
+	"name": "ipunkt/rancherize-drain",
+	"description": "Add drain.timeout to set drain_timeout_ms in rancher-compose.yml",
 	"type": "project",
 	"license": "MIT",
 	"autoload":{
 		"psr-4": {
-			"RancherizeTraefikDrain\\": "plugin/"
+			"RancherizeDrain\\": "plugin/"
 		}
 	},
 	"require-dev": {
 	},
   "extra":{
-    "rancherize-provider":"RancherizeTraefikDrain\\RancherPublishProvider"
+    "rancherize-provider":"RancherizeDrain\\DrainProvider"
   },
 	"require": {
 		"ipunkt/rancherize": "^2.48.0"

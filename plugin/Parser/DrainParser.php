@@ -1,8 +1,8 @@
-<?php namespace RancherizeTraefikDrain\Parser;
+<?php namespace RancherizeDrain\Parser;
 
 use Rancherize\Blueprint\Infrastructure\Service\Service;
 use Rancherize\Configuration\Configuration;
-use RancherizeTraefikDrain\DrainExtraInformation;
+use RancherizeDrain\DrainExtraInformation;
 
 /**
  * Class DrainParser
