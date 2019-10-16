@@ -1,19 +1,19 @@
 {
-	"name": "ipunkt/rancherize-publish-traefik-rancher",
-	"description": "Rancherize plugin to publish images to an ecr repository",
+	"name": "ipunkt/rancherize-traefik-drain",
+	"description": "Rancherize plugin to publish via traefik but with an intermediate rancher lb so drain_timeout_ms takes effect",
 	"type": "project",
 	"license": "MIT",
 	"autoload":{
 		"psr-4": {
-			"RancherizePublishRancher\\": "plugin/"
+			"RancherizeTraefikDrain\\": "plugin/"
 		}
 	},
 	"require-dev": {
 	},
   "extra":{
-    "rancherize-provider":"RancherizePublishRancher\\RancherPublishProvider"
+    "rancherize-provider":"RancherizeTraefikDrain\\RancherPublishProvider"
   },
 	"require": {
-		"ipunkt/rancherize": "^2.11.1@dev"
+		"ipunkt/rancherize": "^2.48.0"
 	}
 }
