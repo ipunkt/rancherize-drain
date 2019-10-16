@@ -16,11 +16,15 @@ Full configuration:
 {
 	"drain": {
 		"enable": false,
-		"timeout":30
+		"timeout": "30s"
 	}
 }
 ```
 
 - Having the `drain` object in your configuration will activate the plugin
-- timeout will default to 30 if active but no timeout is given
+- timeout will default to 30s if active but no timeout is given
+  - The following suffixes can be used:
+    - none: seconds
+    - `s`: seconds
+    - `m`: minutes
 - enable defaults to TRUE and thus should only be actively set for environments where you want to disable the plugin
