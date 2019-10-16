@@ -2,6 +2,7 @@
 
 use Rancherize\Blueprint\Infrastructure\Service\ExtraInformationNotFoundException;
 use Rancherize\Blueprint\Infrastructure\Service\Service;
+use Rancherize\Blueprint\Infrastructure\Service\ServiceYamlDefinition;
 use RancherizeDrain\DrainExtraInformation;
 
 /**
@@ -15,22 +16,15 @@ class Writer {
 	 */
 	protected $service;
 
-	/**
-	 * @var &string
-	 */
-	protected $dockerContent;
+    /**
+     * @var ServiceYamlDefinition
+     */
+    protected $definition;
 
-	/**
-	 * @var &string
-	 */
-	protected $rancherContent;
-
-	public function write() {
+    public function write() {
 		try {
 			$information = $this->service->getExtraInformation(DrainExtraInformation::IDENTIFIER);
-            var_dump('drain information found');
 		} catch(ExtraInformationNotFoundException $e) {
-		    var_dump('no drain information');
 			return;
 		}
 
@@ -54,26 +48,18 @@ class Writer {
 		return $this;
 	}
 
-	/**
-	 * @param mixed $dockerContent
-	 * @return Writer
-	 */
-	public function setDockerContent( &$dockerContent ) {
-		$this->dockerContent = &$dockerContent;
-		return $this;
-	}
-
-	/**
-	 * @param mixed $rancherContent
-	 * @return Writer
-	 */
-	public function setRancherContent( &$rancherContent ) {
-		$this->rancherContent = &$rancherContent;
-		return $this;
-	}
-
 	protected function writeDrainTimeout(DrainExtraInformation $information) {
-		$this->rancherContent['drain_timeout_ms'] = (int)$information->getTimeout();
+		$this->definition->rancherComposeEntry['drain_timeout_ms'] = (int)$information->getTimeout();
 	}
+
+    /**
+     * @param ServiceYamlDefinition $definition
+     * @return Writer
+     */
+    public function setDefinition(ServiceYamlDefinition $definition)
+    {
+        $this->definition = $definition;
+        return $this;
+    }
 
 }

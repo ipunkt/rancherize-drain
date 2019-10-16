@@ -1,12 +1,13 @@
 <?php namespace RancherizeDrain;
 
 use Rancherize\Blueprint\Events\MainServiceBuiltEvent;
-use Rancherize\Blueprint\Infrastructure\Service\Events\ServiceWriterServicePreparedEvent;
+use Rancherize\Blueprint\Infrastructure\Service\Events\ServiceWriterWritePreparedEvent;
 use Rancherize\Plugin\Provider;
 use Rancherize\Plugin\ProviderTrait;
 use RancherizeDrain\EventListeners\MainServiceBuiltListener;
 use RancherizeDrain\EventListeners\ServiceWriterListener;
 use RancherizeDrain\Parser\DrainParser;
+use RancherizeDrain\SuffixConverter\TimeToMSSuffixConverter;
 use RancherizeDrain\Writer\Writer;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -20,8 +21,12 @@ class DrainProvider implements Provider {
 	/**
 	 */
 	public function register() {
-		$this->container[DrainParser::class] = function () {
-			return new DrainParser();
+	    $this->container[TimeToMSSuffixConverter::class] = function() {
+	        return new TimeToMSSuffixConverter();
+        };
+
+		$this->container[DrainParser::class] = function ($c) {
+			return new DrainParser($c[TimeToMSSuffixConverter::class]);
 		};
 
 		$this->container[MainServiceBuiltListener::class] = function($c) {
@@ -75,6 +80,6 @@ class DrainProvider implements Provider {
          * @var EventDispatcher $event
          */
         $event = $this->container['event'];
-        $event->addListener(ServiceWriterServicePreparedEvent::NAME, [$writeListener, 'servicePrepared']);
+        $event->addListener(ServiceWriterWritePreparedEvent::NAME, [$writeListener, 'servicePrepared']);
     }
 }

@@ -1,6 +1,7 @@
 <?php namespace RancherizeDrain\EventListeners;
 
 use Rancherize\Blueprint\Infrastructure\Service\Events\ServiceWriterServicePreparedEvent;
+use Rancherize\Blueprint\Infrastructure\Service\Events\ServiceWriterWritePreparedEvent;
 use RancherizeDrain\Writer\Writer;
 
 /**
@@ -21,21 +22,14 @@ class ServiceWriterListener {
 		$this->writer = $writer;
 	}
 
-	/**
-	 * @param ServiceWriterServicePreparedEvent $event
-	 */
-	public function servicePrepared(ServiceWriterServicePreparedEvent $event) {
-	    var_dump('servicePrepared');
-		$dockerContent = $event->getDockerContent();
-		$rancherContent = $event->getRancherContent();
+    /**
+     * @param ServiceWriterWritePreparedEvent $event
+     */
+	public function servicePrepared(ServiceWriterWritePreparedEvent $event) {
 
 		$this->writer
             ->setService($event->getService())
-            ->setDockerContent($dockerContent)
-			->setRancherContent($rancherContent)
+            ->setDefinition($event->getDefinition())
 			->write();
-
-		$event->setDockerContent($dockerContent);
-		$event->setRancherContent($rancherContent);
 	}
 }

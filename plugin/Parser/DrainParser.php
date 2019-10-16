@@ -3,6 +3,8 @@
 use Rancherize\Blueprint\Infrastructure\Service\Service;
 use Rancherize\Configuration\Configuration;
 use RancherizeDrain\DrainExtraInformation;
+use RancherizeDrain\SuffixConverter\SuffixConverter;
+use RancherizeDrain\SuffixConverter\TimeToMSSuffixConverter;
 
 /**
  * Class DrainParser
@@ -14,6 +16,18 @@ class DrainParser {
      * @var Service
      */
     protected $service;
+    /**
+     * @var SuffixConverter
+     */
+    private $suffixConverter;
+
+    /**
+     * DrainParser constructor.
+     * @param TimeToMSSuffixConverter $suffixConverter
+     */
+    public function __construct(TimeToMSSuffixConverter $suffixConverter) {
+        $this->suffixConverter = $suffixConverter;
+    }
 
 	/**
 	 * @param Service $service
@@ -33,10 +47,11 @@ class DrainParser {
         }
 
 
-		$timeout = (int)$configuration->get('drain.timeout', 30);
+		$timeoutWithSuffix = (string)$configuration->get('drain.timeout', '30s');
+        $timeoutInMs = $this->suffixConverter->apply($timeoutWithSuffix);
 
 		$information = new DrainExtraInformation();
-		$information->setTimeout($timeout);
+		$information->setTimeout($timeoutInMs);
 
 		$this->service->addExtraInformation($information);
 	}
