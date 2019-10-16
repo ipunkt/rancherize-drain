@@ -47,7 +47,7 @@ class DrainProvider implements Provider {
     /**
      * @return EventDispatcher
      */
-    private function registerServiceParser(): EventDispatcher
+    private function registerServiceParser()
     {
         /**
          * @var MainServiceBuiltListener $eventListener
