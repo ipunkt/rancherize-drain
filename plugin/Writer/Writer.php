@@ -71,7 +71,7 @@ class Writer {
 	}
 
 	protected function writeDrainTimeout(DrainExtraInformation $information) {
-		$this->rancherContent['drain_timeout_ms'] = (int)$information->getIdentifier();
+		$this->rancherContent['drain_timeout_ms'] = (int)$information->getTimeout();
 	}
 
 }
