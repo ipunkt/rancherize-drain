@@ -35,14 +35,11 @@ class DrainParser {
 	 */
 	public function parse( Configuration $configuration ) {
 		if( !$configuration->has('drain') ) {
-            var_dump('drain not found');
-
             return;
         }
 
         $isDisabled = !$configuration->get('drain.enable', true);
         if( $isDisabled ) {
-            var_dump('drain disabled');
             return;
         }
 
