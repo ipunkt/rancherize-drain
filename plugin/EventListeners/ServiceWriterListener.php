@@ -28,7 +28,9 @@ class ServiceWriterListener {
 		$dockerContent = $event->getDockerContent();
 		$rancherContent = $event->getRancherContent();
 
-		$this->writer->setDockerContent($dockerContent)
+		$this->writer
+            ->setService($event->getService())
+            ->setDockerContent($dockerContent)
 			->setRancherContent($rancherContent)
 			->write();
 
