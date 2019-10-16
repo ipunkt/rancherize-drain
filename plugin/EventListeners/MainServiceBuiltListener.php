@@ -25,7 +25,9 @@ class MainServiceBuiltListener {
 	 * @param MainServiceBuiltEvent $event
 	 */
 	public function mainServiceBuilt(MainServiceBuiltEvent $event) {
-		$this->drainParser->parse($event->getMainService(), $event->getEnvironmentConfiguration());
+		$this->drainParser
+            ->setService( $event->getMainService() )
+            ->parse( $event->getEnvironmentConfiguration() );
 	}
 
 }
