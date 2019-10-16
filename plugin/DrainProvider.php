@@ -39,6 +39,6 @@ class DrainProvider implements Provider {
 		 * @var EventDispatcher $event
 		 */
 		$event = $this->container['event'];
-		$event->addListener(MainServiceBuiltEvent::NAME, [$eventListener, 'mainServiceBuilt'], -1000);
+		$event->addListener(MainServiceBuiltEvent::NAME, [$eventListener, 'mainServiceBuilt']);
 	}
 }
